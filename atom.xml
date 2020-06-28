@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://davirain-su.github.io/"/>
-  <updated>2020-06-26T16:25:12.305Z</updated>
+  <updated>2020-06-28T19:05:21.861Z</updated>
   <id>https://davirain-su.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序是怎么跑起来的</title>
+    <link href="https://davirain-su.github.io/2020/06/29/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/"/>
+    <id>https://davirain-su.github.io/2020/06/29/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/</id>
+    <published>2020-06-28T19:05:21.861Z</published>
+    <updated>2020-06-28T19:05:21.861Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="程序是怎么跑起来的"><a href="#程序是怎么跑起来的" class="headerlink" title="程序是怎么跑起来的"></a>程序是怎么跑起来的</h1><h2 id="对程序员来说CPU是什么"><a href="#对程序员来说CPU是什么" class="headerlink" title="对程序员来说CPU是什么"></a>对程序员来说CPU是什么</h2><p>1 程序是什么？</p><p>​    官方答案：指示计算机每一步动作的一组指令</p><p>​    自己的答案：</p><p>2 程序是由什么组成的？</p><p>​    官方答案：指令和数据</p><p>​    自己的答案：</p><p>3 什么是机器语言？</p><p>​    官方答案：CPU可以直接识别并使用的语言， 这是因为CPU能够直接识别和执行的只有机器语言。</p><p>​    自己的答案：操作二进制位的语言</p><p>4 正在运行的程序存储在什么位置？</p><p>​     官方答案：内存</p><p>​    自己答案： 内存， 磁盘和硬盘等媒介上保存的数据被复制到内存后才运行。</p><p>5 什么是内存地址？</p><p>​    官方答案：内存中，用来表示命令和数据存储位置的数值， 内存中保存指令和数据的场所，要通过地址来标记，这个和一个人的来说他的住处，要有他的房间号来表示是一样的。</p><p>​    自己答案：表示内存存在位置的数字</p><p>6 计算机的构成元件中，负责程序的解释和运行的是那个？</p><p>​    官方答案：CPU， 在计算机的构成元件中，根据程序的指令来进行数据运算，并控制整个计算机的设备叫做CPU。</p><p>​    自己的答案： CPU</p><h2 id="CPU：-Central-Processing-Unit-中央处理器"><a href="#CPU：-Central-Processing-Unit-中央处理器" class="headerlink" title="CPU： Central Processing Unit 中央处理器"></a>CPU： Central Processing Unit 中央处理器</h2><p>CPU和内存是由许多晶体管组成的电子部件，称为IC（Integrated Circuit, 集成电路)</p><p> CPU是用来表示计算机内部元件功能的术语</p><p> CPU由具有ON/OFF开关功能的晶体管构成</p><h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p> 暂存指令，数据等处理对象， 可以将其看作内存的一种，CPU内部有很多寄存器</p><h4 id="寄存器的种类"><a href="#寄存器的种类" class="headerlink" title="寄存器的种类"></a>寄存器的种类</h4><p><strong>累加寄存器 accumulator register</strong> : 存储执行运算的数据和运算后的数据，只有一个</p><p>*<em>标志寄存器flag register *</em>: 存储运算处理后的CPU的状态，只有一个， 不管当前累加器的运算结果是负数，零，正数，标志寄存器都会将其保存。CPU在运算时，标志寄存器的数值会根据运算结果自动设定， 程序中的比较指令，就是在CPU内部做减法运算</p><p><strong>程序计数器 program counter</strong> ： 存储下一条指令所在内存的地址， 只有一个， 程序计数器决定着程序的流程</p><p>程序计数器会根据指令占据内存地址的大小，增加与指令长度相应大小的数值</p><h5 id="条件分支和循环机制"><a href="#条件分支和循环机制" class="headerlink" title="条件分支和循环机制"></a>条件分支和循环机制</h5><p>循环执行 ： 按照地址内容的顺序执行指令</p><p>条件分支： 根据条件执行任意地址的指令</p><p>循环执行 ： 重复的执行一个地址的指令</p><p>存在条件分支和循环的话，程序计数器的值会设定为任意地址</p><p>条件分支和循环中使用跳转指令，会根据当前执行的结果来判断是否跳转</p><p>条件分支在跳转指令前会进行比较运算</p><h5 id="函数的调用机制"><a href="#函数的调用机制" class="headerlink" title="函数的调用机制"></a>函数的调用机制</h5><p>通过把程序计数器的值设定成函数的存储地址</p><p>函数调用需要在完成函数内部的处理后，处理流程再返回到函数调用点（函数调用指令的下一个地址）</p><p>这里的问题就是：只是跳转到来函数的入口地址，处理流程就不知道应该返回到哪里</p><p>实现的方式是通过跳转指令来实现函数的调用</p><p>遇到的问题是： 在函数处理结束后应该返回函数执行的下一条指令，可是这里该如何实现将程序计数器的值设定成下一条指令的地址呢？</p><p>问题的解决：通过机器语言的call和return</p><p>call：在函数的入口地址设定到程序计数器之前，call指令会把调用函数后要执行的指令地址存储在栈的主存内</p><p>return：指令的功能是把保存在栈中的地址设定到程序计数器中</p><p>高级语言中也是如此， 函数调用通过call 和 return</p><h5 id="通过地址和索引实现数组"><a href="#通过地址和索引实现数组" class="headerlink" title="通过地址和索引实现数组"></a>通过地址和索引实现数组</h5><p>基址寄存器和变址寄存器，对主内存区域进行区分，来实现类似数组的操作</p><p>cpu会把基址寄存器+变址寄存器解释为实际查看的内存地址</p><p>变址寄存器的值就相当于高级编程语言程序中数组的索引功能</p><p>*<em>基址寄存器 base register *</em>： 存储数据内存的起始地址， 有多个</p><p>*<em>变址寄存器 index register *</em>： 存储基址寄存器的相对地址，有多个</p><p><strong>通用寄存器 general purpose resgiter</strong> ： 存储任意数据，有多个</p><p>*<em>指令寄存器 instruct resgiter *</em>： 存储指令，只有一个</p><p>*<em>栈寄存器 stack register *</em>： 存储栈区域的起始地址， 只有一个</p><h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><p>负责把内存上指令、数据等读入寄存器，并根据指令的执行结果来控制整个计算机</p><h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><p> 负责运算从内存读入寄存器的数据</p><h3 id="时钟"><a href="#时钟" class="headerlink" title="时钟"></a>时钟</h3><p>负责发出CPU开始计时的时钟信号，时钟信号 clock puzzle</p><p>寄存器，控制器，运算器，时钟，各个部分之间由电流信号互通</p><p> CPU是寄存器的集合体（程序是把寄存器作为对象来描述的）</p><p>可以从汇编代码中得知机器语言级别的程序是通过寄存器来处理的</p><p>内存的存储场所是通过地址编号来区分的</p><p>寄存器的种类是通过名字来区分的</p><h2 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h2><p>用的助记符来编写程序，原本的电器信号的机器语言指令都有一个与之对应的助记符</p><p>由汇编语言程序编写的程序转化为机器语言的过程： 汇编</p><p>由机器语言转为汇编语言的过程： 反汇编</p><h2 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h2><p>CPU能直接解释和执行的语言</p><p>机器语言的指令集有</p><p>数据传送指令： 寄存器和内存，内存和内存，寄存器和外围设备之间的数据读写操作</p><p>运算指令：用累加寄存器执行算术运算、逻辑运算、比较运算和移位运算</p><p>跳转指令： 实现条件分支、循环、强制跳转等</p><p>call/return指令： 函数的调用/返回调用前的地址</p><h2 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h2><p>能够使用类似人类语言的语法来记述的编程语言的总称</p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>将高级语言编写的程序转换成机器语言的过程，这个转换的程序称为编译器</p><h2 id="CPU是如何运行的（重点保存指令和数据的寄存器的机制）"><a href="#CPU是如何运行的（重点保存指令和数据的寄存器的机制）" class="headerlink" title="CPU是如何运行的（重点保存指令和数据的寄存器的机制）"></a>CPU是如何运行的（重点保存指令和数据的寄存器的机制）</h2><h2 id="Main-memory主存"><a href="#Main-memory主存" class="headerlink" title="Main memory主存"></a>Main memory主存</h2><p> 主存主要负责存储指令和数据</p><p>通常使用DRAM（Dynamic Random Access Memory 动态随机存取存储器</p><p>主存由可读写的元素构成，每个字节都带有一个地址编号</p><p>CPU可以通过该地址读取主存中地址和数据，或者写入数据</p><p>DRAM可以对任何地址进行数据的读写操作，但需要保持稳定的电源供给并时常刷新，关机后内容将会自动清楚。</p><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>指管理和控制计算机硬件与软件资源的计算机程序</p><p>溢出，运算的结果超出来寄存器的长度范围</p><p>奇偶校验， 检查运算结果的值是奇数还是偶数</p><p>了解程序的运行流程是掌握程序运行机制的基础和前提</p><p>CPU所负责的就是解释和运行最终转换成机器语言的程序内容</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;程序是怎么跑起来的&quot;&gt;&lt;a href=&quot;#程序是怎么跑起来的&quot; class=&quot;headerlink&quot; title=&quot;程序是怎么跑起来的&quot;&gt;&lt;/a&gt;程序是怎么跑起来的&lt;/h1&gt;&lt;h2 id=&quot;对程序员来说CPU是什么&quot;&gt;&lt;a href=&quot;#对程序员来说CPU是什么&quot;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>程序是怎么跑起来的</title>
